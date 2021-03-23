@@ -36,19 +36,19 @@ class Login extends CI_controller
        $this->session->set_userdata($sessionAdmin);
        $this->session->set_flashdata('pesan','<div class="btn btn-primary">Anda Berhasil Login .....</div>');
        redirect(base_url('admin/index'));
-      }elseif($pegawai->num_rows() > 0){
-        $DataPegawai=$pegawai->row_array();
-        $sessionPegawai = array(
+      }elseif($krisis->num_rows() > 0){
+        $Datakrisis=$krisis->row_array();
+        $sessionkrisis = array(
             'admin'    => TRUE,
-            'id_pegawai'=> $DataPegawai['id_pegawai'],
-            'username'  => $DataPegawai['username'],
-            'password'  => $DataPegawai['password'],
-            'nama'      => $DataPegawai['nama'],
-            'level'     => 'pegawai',
+            'id_krisis'=> $Datakrisis['id_krisis'],
+            'username'  => $Datakrisis['username'],
+            'password'  => $Datakrisis['password'],
+            'nama'      => $Datakrisis['nama'],
+            'level'     => 'krisis',
               );        
 
 
-      $this->session->set_userdata($sessionPegawai);
+      $this->session->set_userdata($sessionkrisis);
       $this->session->set_flashdata('pesan','<div class="btn btn-primary">Anda Berhasil Login .....</div>');
       redirect(base_url('admin/index'));
 

@@ -171,9 +171,7 @@ if($this->session->userdata('level') =="admin"){
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?= base_url('laporan/laporan_krisis'); ?>"><i class="fa fa-circle-o"></i> Data krisis</a></li>
-             <li><a href="<?= base_url('laporan/laporan_absensi'); ?>"><i class="fa fa-circle-o"></i> Data Absesensi</a></li>
-              <li><a href="<?= base_url('laporan/laporan_tpp'); ?>"><i class="fa fa-circle-o"></i> Data TPP</a></li>
+            <li><a href="<?= base_url('admin/detail_k'); ?>"><i class="fa fa-circle-o"></i> Data krisis</a></li>
             
           </ul>
         </li>        
