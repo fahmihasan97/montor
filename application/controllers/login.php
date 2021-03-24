@@ -44,7 +44,7 @@ class Login extends CI_controller
             'username'  => $Datakrisis['username'],
             'password'  => $Datakrisis['password'],
             'nama'      => $Datakrisis['nama'],
-            'level'     => 'krisis',
+            'level'     => 'user',
               );        
 
 

@@ -160,7 +160,7 @@ if($this->session->userdata('level') =="admin"){
          <li><a href="<?= base_url('admin/user_admin') ?>" class="active"><i class="fa fa-circle-o"></i>User </a></li> 
           </ul>
         </li>
-<?php }elseif($this->session->userdata('level') == "user"){ ?>
+<?php }elseif($this->session->userdata('level') == "krisis"){ ?>
   
   <li class="treeview">
           <a href="#">
@@ -176,33 +176,21 @@ if($this->session->userdata('level') =="admin"){
           </ul>
         </li>        
   
-<?php }elseif($this->session->userdata('level') == "krisis"){ ?>
-
- <li class="treeview">
+<?php }elseif($this->session->userdata('level') == "user"){ ?>
+  
+  <li class="treeview">
           <a href="#">
             <i class="fa fa-pie-chart"></i>
-            <span>Profil krisis</span>
+            <span>Laporan </span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?= base_url('admin/profil_krisis'); ?>"><i class="fa fa-circle-o"></i>Lihat Data Profil Lengkap</a></li>
+            <li><a href="<?= base_url('admin/overview'); ?>"><i class="fa fa-circle-o"></i> Data Pegawai</a></li>
+            
           </ul>
-        </li> 
-
- <li class="treeview">
-          <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>Absensi</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="<?= base_url('admin/absensi'); ?>"><i class="fa fa-circle-o"></i> Absensi krisis</a></li>
-          </ul>
-        </li> 
+        </li>        
 
 <?php } ?>
   <li class="header">END MAIN NAVIGATION</li>
