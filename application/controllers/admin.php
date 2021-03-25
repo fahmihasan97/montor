@@ -30,6 +30,17 @@ class Admin extends CI_controller
    tpl('admin/overview',$x);
   }
 
+   public function details($id)
+  {
+    $data = array('id_krisis' => $id);
+    $data = $this->m_admin->data_details($data)->result();
+    $x = array(
+      'judul' => 'Details Data',
+      'data' => $data
+    );
+    tpl('admin/details', $x);
+  }
+
   public function overview_tambah()
   {
   $x = array('judul'        => 'Tambah Data' ,
@@ -192,7 +203,7 @@ class Admin extends CI_controller
         'penyebab'=>$sql['penyebab'],
         'kontrol'    =>$sql['kontrol'],
         'rencana'    =>$sql['rencana'],
-        'penanganan1'=>$sql['penanganan1'],
+        'penanganan'=>$sql['penanganan'],
         'keterangan'=>$sql['keterangan']); 
     if(isset($_POST['kirim'])){
       $inputData=array(

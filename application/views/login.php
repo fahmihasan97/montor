@@ -16,6 +16,10 @@
   <link rel="stylesheet" href="<?= base_url('template/admin/') ?>/dist/css/AdminLTE.min.css">
   <!-- iCheck -->
   <link rel="stylesheet" href="<?= base_url('template/admin/') ?>/plugins/iCheck/square/blue.css">
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -32,6 +36,8 @@
  <img src="<?= base_url('template/logo2.png') ?>" class="img-responsive">
 </div>
 </div>
+ <center> <b><h2><font color="orange"> APLIKASI MONITORING TOWER KRISIS UIT JBTB UNIT INDUK </b> </h2></font></font></center>
+ </div>
 
 <body class="hold-transition login-page">
 <div class="login-box">

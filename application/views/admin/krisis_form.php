@@ -1,28 +1,8 @@
 <table class="table table-reposive">
 	<form action="" method="POST">
+	<tr><th>Penghantar</th><td><input type="text" name="tl" class="form-control" value="<?= $tl ?>"></td></tr>
 	<tr><th>Kode</th><td><input type="text" name="kode" class="form-control" value="<?= $kode ?>"></td></tr>
-	<tr><th>T / L</th><td><select class="form-control" name="tl" required="">
-	                          <option value="BLD-SKH">Balongbendo - Sekarputih</option>
-	                          <option value="DYO-BBN">Driyorejo - Babadan</option>
-	                          <option value="GRT-KRN">Grati - Krian</option>
-	                          <option value="GRS-KRN">Gresik - Krian</option>
-	                          <option value="DYO-BBN">Kebonagung - Sengguruh</option>
-	                          <option value="KBG-SGH">Kebonagung - Sengguruh</option>
-	                          <option value="KBG-STM">Kebonagung - Sutami</option>
-	                          <option value="NBG-KRN">Ngimbang - Krian</option>
-	                          <option value="SKH-MJG">Sekarputih - Mojoagung</option>
-	                          <option value="SKH-NGO">Sekarputih - Ngoro</option>
-	                          <option value="SKH-SMN-MDN">Sekarputih - Siman - Mendalan</option>
-	                          <option value="SKH-TRK">Sekarputih - Tarik</option>
-                              <option value="SKG-MDN">Sengkaling - Mendalan</option>
-	                          <option value="SMN-MDN-SKH">Siman - Mendalan - Sekarputih</option>
-	                          <option value="SBB-APA">Surabaya Barat - Altaprima</option>
-	                          <option value="SBB-BLO">Surabaya Barat - Balongbendo</option>
-	                          <option value="SBB-SWN">Surabaya Barat - Sawahan</option>
-	                          <option value="SBB-TNS">Surabaya Barat - Tandes</option>
-	                          <option value="TRK-DYO-MWN">Tarik - Driyorejo - Miwon</option>
-	                          <option value="UGN-KRN">Ungaran - Krian</option>
-	                          <option value="UGN-NBG">Ungaran - Ngimbang</option>
+	                 
                               </select></td></tr>
 	<tr><th>Wilayah</th><td><input type="text" name="wilayah" class="form-control" value="<?= $wilayah ?>"></td></tr>
 	<tr><th>Skor</th><td><input type="number" name="skor" class="form-control" value="<?= $skor ?>"></td></tr>

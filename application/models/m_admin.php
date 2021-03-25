@@ -11,6 +11,12 @@ public function krisis($value='')
  return $this->db->query("SELECT * from krisis a, overview b where a.id_overview=b.id_overview group by a.id_krisis");
 }
 
+public function data_details($data)
+  {
+
+    return $this->db->get_where('krisis', $data);
+  }
+
 public function count_data($table){
   return $this->db->query("SELECT COUNT(*) AS jml_data FROM $table");
 }

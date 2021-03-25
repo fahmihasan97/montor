@@ -29,9 +29,9 @@
                  <td><?= $admin['update'] ?></td>
                  <td><?= $admin['penanganan'] ?></td>
                 <?php if($this->session->userdata('level') == "admin"){ ?>
-                 <td><a href="<?= base_url('admin/overview_edit/'.$admin['id_overview']) ?>" class="btn btn-info">Edit</a> <a href="<?= base_url('admin/overview_hapus/'.$admin['id_overview']) ?>" class="btn btn-danger">Hapus</a></td>
+                 <td><a href="<?= base_url('admin/overview_edit/'.$admin['id_overview']) ?>" class="btn btn-info">Edit</a> <a href="<?= base_url('admin/overview_hapus/'.$admin['id_overview']) ?>" class="btn btn-danger">Hapus</a>
                  <?php }elseif($this->session->userdata('level') == "user"){ ?>
-                  <td><a href="<?= base_url('admin/overview_edit/'.$admin['id_overview']) ?>" class="btn btn-success btn-md">Rincian</a></td>  <?php } ?>
+                  <td><a href="<?= base_url('admin/details/'.$admin['id_krisis']) ?>" class="btn btn-success btn-md">Rincian</a></td>  <?php } ?>
                  </tr>
 
                  <?php $no++; endforeach; ?>
