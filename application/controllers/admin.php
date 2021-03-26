@@ -131,82 +131,105 @@ class Admin extends CI_controller
    }
   }
 
-  public function krisis()
+  public function krisis($value='')
   {
    $x = array('judul' =>'Data krisis', 
               'data'=>$this->db->get('krisis')->result_array()); 
    tpl('admin/krisis',$x);
   }
 
-  public function krisis_tambah()
+  public function ls_krisis($value='')
   {
-  $x = array('judul'        => 'Tambah Data' ,
+   $data=$this->m_admin->krisis()->row_array();
+   echo json_encode($data);
+  }
+
+  public function krisis_tambah($value='')
+  {
+  $x = array('judul'       => 'Tambah Data',
               'aksi'        => 'tambah',
-              'kode'=> "",
-              'tl'    => "",
-              'wilayah'=> "",
-              'skor'    => "",
-              'status'=> "",
-              'tgl'    => "",
-              'jenis'=> "",
-              'rincian'    => "",
-              'penyebab'=> "",
-              'kontrol'    => "",
-              'rencana'=> "",
-              'penanganan'   => "",
-              'keterangan'   => ""); 
-    if(isset($_POST['kirim'])){
-      $inputData=array(
+              'kode'=> '',
+              'tl'    => '',
+              'wilayah'=> '',
+              'skor'    => '',
+              'status'=> '',
+              'tgl'    => '',
+              'jenis'=> '',
+              'rincian'    => '',
+              'penyebab'=> '',
+              'kontrol'    => '',
+              'rencana'=> '',
+              'penanganan'   => '',
+              'foto'      => '',
+              'keterangan'   => ''
+            ); 
+     if (isset($_POST['kirim'])) {
+      
+      $config['upload_path'] = './template/data/'; 
+      $config['allowed_types'] = 'bmp|jpg|png|jpeg';  
+      $config['file_name'] = 'foto_'.time();  
+      $this->load->library('upload', $config);
+      $this->upload->initialize($config);
+      $upload = $this->upload->do_upload('file');
+      if($upload){
+        $SQLinsert=array(
         'kode'=>$this->input->post('kode'),
-        'tl'    =>$this->input->post('tl'),
+        'tl'=>$this->input->post('tl'),
         'wilayah'=>$this->input->post('wilayah'),
-        'skor'    =>$this->input->post('skor'),
+        'skor'=>$this->input->post('skor'),
+        'foto'=>$this->upload->file_name,
         'status'=>$this->input->post('status'),
-        'tgl'    =>$this->input->post('tgl'),
+        'tgl'=>$this->input->post('tgl'),
         'jenis'=>$this->input->post('jenis'),
-        'rincian'    =>$this->input->post('rincian'),
+        'rincian'=>$this->input->post('rincian'),
         'penyebab'=>$this->input->post('penyebab'),
-        'kontrol'    =>$this->input->post('kontrol'),
+        'kontrol'=>$this->input->post('kontrol'),
+        'penanganan'=>$this->input->post('penanganan'),
+        'keterangan'=>$this->input->post('keterangan'),
         'rencana'=>$this->input->post('rencana'),
-        'penanganan'         =>$this->input->post('penanganan'),
-        'keterangan'    =>$this->input->post('keterangan'));
-      $cek=$this->db->insert('krisis',$inputData);
-      if($cek){
-        $pesan='<div class="alert alert-success alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <h4><i class="icon fa fa-check"></i> Success!</h4>
-               Data Berhasil Di Ditambahkan.
-              </div>';
-    $this->session->set_flashdata('pesan',$pesan);
-    redirect(base_url('admin/krisis'));
+        );
+        $cek=$this->db->insert('krisis',$SQLinsert);
+        if($cek){
+            $pesan='<div class="alert alert-success alert-dismissible">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <h4><i class="icon fa fa-check"></i> Success!</h4>
+                       Data Berhasil Di Tambahkan.
+                      </div>';
+            $this->session->set_flashdata('pesan',$pesan);
+            redirect(base_url('admin/krisis'));
+        }else{
+         echo "QUERY SQL ERROR";
+        }
       }else{
-       echo "ERROR input Data";
+        echo $this->upload->display_errors();
       }
     }else{
-     tpl('admin/krisis_form',$x);
-    }
-  }
+      tpl('admin/krisis_form',$x);
+    } 
+ }
     
   public function krisis_edit($id='')
   {
-  $sql=$this->db->get_where('krisis',array('id_krisis'=>$id))->row_array(); 
+  $data=$this->db->get_where('krisis',array('id_krisis'=>$id))->row_array(); 
   $x = array('judul'        =>'Tambah Data' ,
               'aksi'        =>'tambah',
-        'kode'=>$sql['kode'],
-        'tl'    =>$sql['tl'],
-        'wilayah'=>$sql['wilayah'],
-        'skor'    =>$sql['skor'],
-        'status'    =>$sql['status'],
-        'tgl'=>$sql['tgl'],
-        'jenis'=>$sql['jenis'],
-        'rincian'    =>$sql['rincian'],
-        'penyebab'=>$sql['penyebab'],
-        'kontrol'    =>$sql['kontrol'],
-        'rencana'    =>$sql['rencana'],
-        'penanganan'=>$sql['penanganan'],
-        'keterangan'=>$sql['keterangan']); 
-    if(isset($_POST['kirim'])){
-      $inputData=array(
+        'kode'=>$data['kode'],
+        'tl'    =>$data['tl'],
+        'wilayah'=>$data['wilayah'],
+        'skor'    =>$data['skor'],
+        'status'    =>$data['status'],
+        'tgl'=>$data['tgl'],
+        'jenis'=>$data['jenis'],
+        'foto'=>$data['foto'],
+        'rincian'    =>$data['rincian'],
+        'penyebab'=>$data['penyebab'],
+        'kontrol'    =>$data['kontrol'],
+        'rencana'    =>$data['rencana'],
+        'penanganan'=>$data['penanganan'],
+        'keterangan'=>$data['keterangan']); 
+    if (isset($_POST['kirim'])) {     
+    if(empty($_FILES['file']['name'])){
+      $SQLinsert=array(
         'kode'=>$this->input->post('kode'),
         'tl'    =>$this->input->post('tl'),
         'wilayah'=>$this->input->post('wilayah'),
@@ -220,26 +243,65 @@ class Admin extends CI_controller
         'rencana'=>$this->input->post('rencana'),
         'penanganan'         =>$this->input->post('penanganan'),
         'keterangan'=>$this->input->post('keterangan'),);
-      $cek=$this->db->update('krisis',$inputData,array('id_krisis'=>$id));
-      if($cek){
+      $this->db->update('krisis',$SQLinsert,array('id_krisis'=>$id));
         $pesan='<div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 <h4><i class="icon fa fa-check"></i> Success!</h4>
                Data Berhasil Di Diedit.
               </div>';
-    $this->session->set_flashdata('pesan',$pesan);
-    redirect(base_url('admin/krisis'));
-      }else{
-       echo "ERROR input Data";
-      }
+      $this->session->set_flashdata('pesan',$pesan);
+      redirect(base_url('admin/krisis'));
     }else{
-     tpl('admin/krisis_form',$x);
+        $config['upload_path'] = './template/data/'; 
+        $config['allowed_types'] = 'bmp|jpg|png|jpeg';  
+        $config['file_name'] = 'foto_'.time(); 
+
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        $upload = $this->upload->do_upload('file');
+  
+        if($upload){
+          $SQLinsert=array(
+          'kode'=>$this->input->post('kode'),
+          'tl'=>$this->input->post('tl'),
+          'wilayah'=>$this->input->post('wilayah'),
+          'skor'=>$this->input->post('skor'),
+          'status'=>$this->input->post('status'),
+          'tgl'=>$this->input->post('tgl'),
+          'jenis'=>$this->input->post('jenis'),
+          'rincian'=>$this->input->post('rincian'),
+          'penyebab'=>$this->input->post('penyebab'),
+          'kontrol'=>$this->input->post('kontrol'),
+          'rencana'=>$this->input->post('rencana'),
+          'penanganan'=>$this->input->post('penanganan'),
+          'keterangan'=>$this->input->post('keterangan'),
+          'foto'=>$this->upload->file_name);
+          $cek=$this->db->update('krisis',$SQLinsert,array('id_krisis'=>$id));
+          if($cek){
+              $pesan='<div class="alert alert-success alert-dismissible">
+                          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                          <h4><i class="icon fa fa-check"></i> Success!</h4>
+                         Data Berhasil Di Edit.
+                        </div>';
+              $this->session->set_flashdata('pesan',$pesan);
+              redirect(base_url('admin/krisis'));
+          }else{
+           echo "QUERY SQL ERROR";
+          }
+        }else{
+          echo $this->upload->display_errors();
+        }
+     }
+    }else{
+      tpl('admin/krisis_form',$x);
     }
   }
-
   
   public function krisis_hapus($id='')
   {
+
+    $foto=$this->db->get_where('krisis',array('id_krisis'=>$id))->row_array();
+    if($foto['foto'] != ""){ @unlink('template/data/'.$foto['foto']); }else{ }
    $cek=$this->db->delete('krisis',array('id_krisis'=>$id));
    if ($cek) {
     $pesan='<div class="alert alert-success alert-dismissible">

@@ -6,7 +6,7 @@
                 <tr>
                   <th>No</th>
                   <th>Kode</th>
-                  <th>Penghantar</th>
+                  <th>T/L</th>
                   <th>Wilayah</th>
                   <th>Skor</th>
                   <th>Status</th>
@@ -18,6 +18,7 @@
                   <th>Rencana</th>
                   <th>Penanganan</th>
                   <th>Keterangan</th>
+                  <th>Foto 1</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
@@ -37,7 +38,8 @@
                  <td><?= $admin['kontrol'] ?></td>
                  <td><?= $admin['rencana'] ?></td>
                  <td><?= $admin['penanganan'] ?></td>
-                  <td><?= $admin['keterangan'] ?></td>
+                 <td><?= $admin['keterangan'] ?></td>
+                <td><img src="<?= base_url('template/data/'.$admin['foto']) ?>" class="img-responsive" style="width: 100px;height: 100xp"></td>
                  <td><a href="<?= base_url('admin/krisis_edit/'.$admin['id_krisis']) ?>" class="btn btn-info">Edit</a> <a href="<?= base_url('admin/krisis_hapus/'.$admin['id_krisis']) ?>" class="btn btn-danger">Hapus</a><a href="<?= base_url('admin/details/'.$admin['id_krisis']) ?>" class="btn btn-success btn-md">Rincian</a></td> 
                  </tr>
 

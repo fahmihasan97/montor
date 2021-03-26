@@ -1,5 +1,5 @@
 <table class="table table-reposive">
-	<form action="" method="POST">
+	<form action="" method="POST" enctype="multipart/form-data">
 	<tr><th>Penghantar</th><td><input type="text" name="tl" class="form-control" value="<?= $tl ?>"></td></tr>
 	<tr><th>Kode</th><td><input type="text" name="kode" class="form-control" value="<?= $kode ?>"></td></tr>
 	                 
@@ -19,8 +19,23 @@
 	<tr><th>Rencana</th><td><input type="text" name="rencana" class="form-control" value="<?= $rencana ?>"></td></tr>
 	<tr><th>Penanganan</th><td><input type="text" name="penanganan" class="form-control" value="<?= $penanganan ?>"></td></tr>
 	<tr><th>Keterangan</th><td><input type="text" name="keterangan" class="form-control" value="<?= $keterangan ?>"></td></tr>
+	<tr><th>Foto</th><td>
+	<?php 
+      if($aksi == "edit"){
+        echo '<img src="'.base_url('template/data/'.$foto).'" class="img-responsive" style="width:200px;height:200px">';
+      }else{
+
+      }
+	?>
+<input type="file" name="file" value="" class="form-control">
+</td></tr>
     <tr><td></td><th><input type="submit" name="kirim" value="Submit" class="btn btn-primary"></th></tr>
     </form>	 
 </table>
+<?php 
+if($aksi == "edit"):
+?>	
+<span><i>Kosongkan gambar jika tidak ingin diganti.</i></span>
+<?php endif; ?>
  
  
