@@ -27,7 +27,13 @@ foreach ($data as $admin) : ?>
     <div><blockquote style="border-left: 5px solid #fce27c; background-color: #f6ebc1; padding: .5em 1em; }blockquote p {margin: 0;"><font size="3"><b>Keterangan </b></font>
     <div><font size="2"><?= $admin->keterangan ?></font></div></div><br></blockquote>
     <a href="#" class="thumbnail">
-    <img src="<?=base_url()?>template/data/<?=$admin->foto?>" alt="foto"></a>
+    <img src="<?=base_url()?>template/data/<?=$admin->foto?>" alt="foto"></a><br>
+    <a href="#" class="thumbnail">
+    <img src="<?=base_url()?>template/data/<?=$admin->foto1?>" alt="foto"></a><br>
+    <a href="#" class="thumbnail">
+    <img src="<?=base_url()?>template/data/<?=$admin->foto2?>" alt="foto"></a><br>
+    <a href="#" class="thumbnail">
+    <img src="<?=base_url()?>template/data/<?=$admin->foto3?>" alt="foto"></a>
 
 
 <?php

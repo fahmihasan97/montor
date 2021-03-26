@@ -19,6 +19,9 @@
                   <th>Penanganan</th>
                   <th>Keterangan</th>
                   <th>Foto 1</th>
+                  <th>Foto 2</th>
+                  <th>Foto 3</th>
+                  <th>Foto 4</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
@@ -39,7 +42,10 @@
                  <td><?= $admin['rencana'] ?></td>
                  <td><?= $admin['penanganan'] ?></td>
                  <td><?= $admin['keterangan'] ?></td>
-                <td><img src="<?= base_url('template/data/'.$admin['foto']) ?>" class="img-responsive" style="width: 100px;height: 100xp"></td>
+                  <td><img src="<?= base_url('template/data/'.$admin['foto']) ?>" class="img-responsive" style="width: 100px;height: 100xp"></td>
+                  <td><img src="<?= base_url('template/data/'.$admin['foto1']) ?>" class="img-responsive" style="width: 100px;height: 100xp"></td>
+                  <td><img src="<?= base_url('template/data/'.$admin['foto2']) ?>" class="img-responsive" style="width: 100px;height: 100xp"></td>
+                  <td><img src="<?= base_url('template/data/'.$admin['foto3']) ?>" class="img-responsive" style="width: 100px;height: 100xp"></td>
                  <td><a href="<?= base_url('admin/krisis_edit/'.$admin['id_krisis']) ?>" class="btn btn-info">Edit</a> <a href="<?= base_url('admin/krisis_hapus/'.$admin['id_krisis']) ?>" class="btn btn-danger">Hapus</a><a href="<?= base_url('admin/details/'.$admin['id_krisis']) ?>" class="btn btn-success btn-md">Rincian</a></td> 
                  </tr>
 

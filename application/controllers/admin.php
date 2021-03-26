@@ -161,6 +161,9 @@ class Admin extends CI_controller
               'rencana'=> '',
               'penanganan'   => '',
               'foto'      => '',
+              'foto1'      => '',
+              'foto2'      => '',
+              'foto3'      => '',
               'keterangan'   => ''
             ); 
      if (isset($_POST['kirim'])) {
@@ -178,6 +181,9 @@ class Admin extends CI_controller
         'wilayah'=>$this->input->post('wilayah'),
         'skor'=>$this->input->post('skor'),
         'foto'=>$this->upload->file_name,
+        'foto1'=>$this->upload->file_name,
+        'foto2'=>$this->upload->file_name,
+        'foto3'=>$this->upload->file_name,
         'status'=>$this->input->post('status'),
         'tgl'=>$this->input->post('tgl'),
         'jenis'=>$this->input->post('jenis'),
@@ -221,6 +227,9 @@ class Admin extends CI_controller
         'tgl'=>$data['tgl'],
         'jenis'=>$data['jenis'],
         'foto'=>$data['foto'],
+        'foto1'=>$data['foto1'],
+        'foto2'=>$data['foto2'],
+        'foto3'=>$data['foto3'],
         'rincian'    =>$data['rincian'],
         'penyebab'=>$data['penyebab'],
         'kontrol'    =>$data['kontrol'],
@@ -229,26 +238,6 @@ class Admin extends CI_controller
         'keterangan'=>$data['keterangan']); 
     if (isset($_POST['kirim'])) {     
     if(empty($_FILES['file']['name'])){
-      $SQLinsert=array(
-        'kode'=>$this->input->post('kode'),
-        'tl'    =>$this->input->post('tl'),
-        'wilayah'=>$this->input->post('wilayah'),
-        'skor'    =>$this->input->post('skor'),
-        'status'=>$this->input->post('status'),
-        'tgl'    =>$this->input->post('tgl'),
-        'jenis'=>$this->input->post('jenis'),
-        'rincian'    =>$this->input->post('rincian'),
-        'penyebab'=>$this->input->post('penyebab'),
-        'kontrol'    =>$this->input->post('kontrol'),
-        'rencana'=>$this->input->post('rencana'),
-        'penanganan'         =>$this->input->post('penanganan'),
-        'keterangan'=>$this->input->post('keterangan'),);
-      $this->db->update('krisis',$SQLinsert,array('id_krisis'=>$id));
-        $pesan='<div class="alert alert-success alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <h4><i class="icon fa fa-check"></i> Success!</h4>
-               Data Berhasil Di Diedit.
-              </div>';
       $this->session->set_flashdata('pesan',$pesan);
       redirect(base_url('admin/krisis'));
     }else{
@@ -275,7 +264,10 @@ class Admin extends CI_controller
           'rencana'=>$this->input->post('rencana'),
           'penanganan'=>$this->input->post('penanganan'),
           'keterangan'=>$this->input->post('keterangan'),
-          'foto'=>$this->upload->file_name);
+          'foto'=>$this->upload->file_name,
+          'foto1'=>$this->upload->file_name,
+          'foto2'=>$this->upload->file_name,
+          'foto3'=>$this->upload->file_name);
           $cek=$this->db->update('krisis',$SQLinsert,array('id_krisis'=>$id));
           if($cek){
               $pesan='<div class="alert alert-success alert-dismissible">
@@ -300,7 +292,7 @@ class Admin extends CI_controller
   public function krisis_hapus($id='')
   {
 
-    $foto=$this->db->get_where('krisis',array('id_krisis'=>$id))->row_array();
+   $foto=$this->db->get_where('krisis',array('id_krisis'=>$id))->row_array();
     if($foto['foto'] != ""){ @unlink('template/data/'.$foto['foto']); }else{ }
    $cek=$this->db->delete('krisis',array('id_krisis'=>$id));
    if ($cek) {

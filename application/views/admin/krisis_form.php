@@ -19,10 +19,40 @@
 	<tr><th>Rencana</th><td><input type="text" name="rencana" class="form-control" value="<?= $rencana ?>"></td></tr>
 	<tr><th>Penanganan</th><td><input type="text" name="penanganan" class="form-control" value="<?= $penanganan ?>"></td></tr>
 	<tr><th>Keterangan</th><td><input type="text" name="keterangan" class="form-control" value="<?= $keterangan ?>"></td></tr>
-	<tr><th>Foto</th><td>
+	<tr><th>Foto1</th><td>
 	<?php 
       if($aksi == "edit"){
         echo '<img src="'.base_url('template/data/'.$foto).'" class="img-responsive" style="width:200px;height:200px">';
+      }else{
+
+      }
+	?>
+<input type="file" name="file" value="" class="form-control">
+</td></tr>
+<tr><th>Foto2</th><td>
+	<?php 
+      if($aksi == "edit"){
+        echo '<img src="'.base_url('template/data/'.$fot1).'" class="img-responsive" style="width:200px;height:200px">';
+      }else{
+
+      }
+	?>
+<input type="file" name="file" value="" class="form-control">
+</td></tr>
+<tr><th>Foto3</th><td>
+	<?php 
+      if($aksi == "edit"){
+        echo '<img src="'.base_url('template/data/'.$foto2).'" class="img-responsive" style="width:200px;height:200px">';
+      }else{
+
+      }
+	?>
+<input type="file" name="file" value="" class="form-control">
+</td></tr>
+<tr><th>Foto4</th><td>
+	<?php 
+      if($aksi == "edit"){
+        echo '<img src="'.base_url('template/data/'.$foto3).'" class="img-responsive" style="width:200px;height:200px">';
       }else{
 
       }
