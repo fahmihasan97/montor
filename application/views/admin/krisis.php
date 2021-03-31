@@ -5,17 +5,24 @@
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Kode</th>
-                  <th>T/L</th>
-                  <th>Wilayah</th>
-                  <th>Skor</th>
-                  <th>Status</th>
-                  <th>Tgl Justifi</th>
+                  <th>Tgl</th>
+                  <th>UPT</th>
+                  <th>ULTG</th>
+                  <th>Penghantar</th>
+                  <th>KV</th>
                   <th>Tower</th>
-                  <th>Rincian</th>
-                  <th>Penyebab</th>
-                  <th>Kontrol</th>
-                  <th>Rencana</th>
+                  <th>Jenis</th>
+                  <th>KKP</th>
+                  <th>Kelengkapan Lingkungan</th>
+                  <th>Kelengkapan Pondasi</th>
+                  <th>Kelengkapan Foto</th>
+                  <th>Skor Lingkungan</th>
+                  <th>Skor Pondasi</th>
+                  <th>Skor Hujan</th>
+                  <th>Anomali</th>
+                  <th>Tautan</th>
+                  <th>Risiko</th>
+                  <th>Mitigasi</th>
                   <th>Penanganan</th>
                   <th>Keterangan</th>
                   <th>Foto 1</th>
