@@ -16,7 +16,6 @@
 	                          <option value="ULTG Bali Utara">ULTG Bali Utara</option>
 	                          <option value="ULTG Gresik">ULTG Gresik</option>
 	                          <option value="ULTG Jember">ULTG Jember</option>
-                              </select></td></tr>
                               <option value="ULTG Kediri">ULTG Kediri</option>
                               <option value="ULTG Krian">ULTG Krian</option>
 	                          <option value="ULTG Jember Selatan">ULTG Jember</option>
@@ -25,7 +24,6 @@
 	                          <option value="ULTG Mojokerto">ULTG Mojokerto</option>
 	                          <option value="ULTG Probolinggo">ULTG Probolinggo</option>
 	                          <option value="ULTG Sampang">ULTG Sampang</option>
-                              </select></td></tr>
                               <option value="ULTG Kediri">ULTG Kediri</option>
 	                          <option value="ULTG Surabaya Selatan ">ULTG Surabaya Selatan</option>
 	                          <option value="ULTG Surabaya Utara">ULTG Surabaya Utara</option>
@@ -160,7 +158,6 @@
 	<tr><th>Tautan Folder LINK</th><td><input type="text" name="tautan" class="form-control" value="<?= $tautan ?>"></td></tr>
 	<tr><th>Penanganan</th><td><input type="text" name="penanganan" class="form-control" value="<?= $penanganan ?>"></td></tr>
 	<tr><th>Risiko</th><td><input type="text" name="risiko" class="form-control" value="<?= $risiko ?>"></td></tr>
-	<tr><th>Foto1</th><td>
 	<tr><th>Mitigasi Risiko</th><td><input type="text" name="mitigasi" class="form-control" value="<?= $mitigasi ?>"></td></tr>
 	<tr><th>Foto1</th><td>
 	<?php 
