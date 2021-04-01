@@ -19,6 +19,9 @@
                   <th>Skor Lingkungan</th>
                   <th>Skor Pondasi</th>
                   <th>Skor Hujan</th>
+                  <th>Klasifikasi Lingkungan</th>
+                  <th>Klasifikasi Pondasi</th>
+                  <th>Klasifikasi Hujan</th>
                   <th>Anomali</th>
                   <th>Tautan</th>
                   <th>Risiko</th>
@@ -41,19 +44,18 @@
                  <td><?= $admin['ultg'] ?></td>
                  <td><?= $admin['penghantar'] ?></td>
                  <td><?= $admin['kv'] ?></td>
-                 <td><font color="red"><b><?= $admin['tower'] ?></b></font></td> 
-                 
+                 <td><?= $admin['tower'] ?></b></font></td> 
                  <td><?= $admin['jenis'] ?></td>
-                <td><?= $admin['kkp'] ?></td>
-                 <td><?= $admin['kelling'] ?></td>
-                <td><?= $admin['kelpo'] ?></td>
-                <td><?= $admin['kelfo'] ?></td>
-                 <td><?= $admin['skoli'] ?></td>
-                 <td><?= $admin['skopo'] ?></td>
-                 <td><?= $admin['skohu'] ?></td>
-                 <td><?= $admin['klali'] ?></td>
-                 <td><?= $admin['klapo'] ?>
-                 <td><?= $admin['klahu'] ?></td>
+                <td><font color="red"><b><?= $admin['kkp'] ?></td>
+                 <td><font color="red"><b><?= $admin['kelling'] ?></td>
+                <td><font color="red"><b><?= $admin['kelpo'] ?></td>
+                <td><font color="red"><b><?= $admin['kelfo'] ?></td>
+                 <td><font color="red"><b><?= $admin['skoli'] ?></td>
+                 <td><font color="red"><b><?= $admin['skopo'] ?></td>
+                 <td><font color="red"><b><?= $admin['skohu'] ?></td>
+                 <td><font color="red"><b><?= $admin['klali'] ?></td>
+                 <td><font color="red"><b><?= $admin['klapo'] ?>
+                 <td><font color="red"><b><?= $admin['klahu'] ?></td>
                  <td><?= $admin['anomali'] ?></td>
                  <td><?= $admin['tautan'] ?>
                  <td><?= $admin['risiko'] ?></td>

@@ -108,23 +108,60 @@
 	                         <option value="Waru - Buduran - Maspion">Waru - Buduran - Maspion</option>
 	                         <option value="Waru - Buduran - Sidoarjo">Waru - Buduran - Sidoarjo</option>
                              </select></td></tr>
-	<tr><th>Penghantar</th><td><input type="text" name="penghantar" class="form-control" value="<?= $penghantar ?>"></td></tr>
-	<tr><th>KV</th><td><input type="number" name="kv" class="form-control" value="<?= $kv ?>"></td></tr>
+	<tr><th>KV</th><td><select class="form-control" name="kv" required="">
+	                          <option value="70">70</option>
+	                          <option value="150">150</option>
+	                          <option value="500">500</option>
+                              </select></td></tr>
 	<tr><th>Jenis Tower</th><td><input type="text" name="jenis" class="form-control" value="<?= $jenis ?>"></td></tr>
 	<tr><th>No Tower</th><td><input type="number" name="tower" class="form-control" value="<?= $tower ?>"></td></tr>
-	<tr><th>Status</th><td><select class="form-control" name="status" required="">
-	                          <option value="KRITIS">KRITIS</option>
-	                          <option value="WASPADA">WASPADA</option>
-	                          <option value="EX-KRITIS">EX-KRITIS</option>
+	<tr><th>*KELENGKAPAN DOKUMEN*</th></tr>
+	<tr><th>KKP</th><td><select class="form-control" name="kkp" required="">
+	                          <option value="NOK">NOK</option>
+	                          <option value="OK">OK</option>
+	                          <option value="-">-</option>
                               </select></td></tr>
-	
-	<tr><th>Jenis</th><td><input type="text" name="jenis" class="form-control" value="<?= $jenis ?>"></td></tr>
-	<tr><th>Rincian</th><td><input type="text" name="rincian" class="form-control" value="<?= $rincian ?>"></td></tr>
-	<tr><th>Penyebab</th><td><input type="text" name="penyebab" class="form-control" value="<?= $penyebab ?>"></td></tr>
-	<tr><th>Kontrol</th><td><input type="text" name="kontrol" class="form-control" value="<?= $kontrol ?>"></td></tr>
-	<tr><th>Rencana</th><td><input type="text" name="rencana" class="form-control" value="<?= $rencana ?>"></td></tr>
-	<tr><th>Penanganan</th><td><input type="text" name="penanganan" class="form-control" value="<?= $penanganan ?>"></td></tr>
+     <tr><th>Assesmen Lingkungan</th><td><select class="form-control" name="kelling" required="">
+	                          <option value="NIHIL">NIHIL</option>
+	                          <option value="NOK">NOK</option>
+	                          <option value="OK">OK</option>
+	                          <option value="-">-</option>
+                              </select></td></tr>
+     <tr><th>Assesmen Pondasi</th><td><select class="form-control" name="kelpo" required="">
+	                          <option value="NIHIL">NIHIL</option>
+	                          <option value="NOK">NOK</option>
+	                          <option value="OK">OK</option>
+	                          <option value="-">-</option>
+                              </select></td></tr>
+     <tr><th>Kelengkapan Foto</th><td><select class="form-control" name="kelfo" required="">
+	                          <option value="NOK">NOK</option>
+	                          <option value="OK">OK</option>
+	                          <option value="-">-</option>
+                              </select></td></tr>
+    <tr><th>*SKOR*</th></tr>
+	<tr><th>Assesmen Lingkungan</th><td><input type="text" name="skoli" class="form-control" value="<?= $skoli ?>"></td></tr>
+	<tr><th>Assesmen Pondasi</th><td><input type="text" name="skopo" class="form-control" value="<?= $skopo ?>"></td></tr>
+	<tr><th>Sifat Hujan</th><td><input type="text" name="skohu" class="form-control" value="<?= $skohu ?>"></td></tr>
+	<tr><th>*KLASIFIKASI</th></tr>
+	<tr><th>Asessmen Lingkungan</th><td><select class="form-control" name="kelfo" required="">
+	                          <option value="AMAN">AMAN</option>
+	                          <option value="WASPADA">WASPADA</option>
+	                          <option value="KRITIS">KRITIS</option>
+	                          <option value="-">-</option>
+                              </select></td></tr>
+    <tr><th>Sifat Hujan</th><td><select class="form-control" name="klahu" required="">
+	                          <option value="ATAS NORMAL">ATAS NORMAL</option>
+	                          <option value="NORMAL">NORMAL</option>
+	                          <option value="BAWAH NORMAL">BAWAH NORMAL</option>
+	                          <option value="-">-</option>
+                              </select></td></tr>
+	<tr><th>Anomali</th><td><input type="text" name="anomali" class="form-control" value="<?= $anomali ?>"></td></tr>
 	<tr><th>Keterangan</th><td><input type="text" name="keterangan" class="form-control" value="<?= $keterangan ?>"></td></tr>
+	<tr><th>Tautan Folder LINK</th><td><input type="text" name="tautan" class="form-control" value="<?= $tautan ?>"></td></tr>
+	<tr><th>Penanganan</th><td><input type="text" name="penanganan" class="form-control" value="<?= $penanganan ?>"></td></tr>
+	<tr><th>Risiko</th><td><input type="text" name="risiko" class="form-control" value="<?= $risiko ?>"></td></tr>
+	<tr><th>Foto1</th><td>
+	<tr><th>Mitigasi Risiko</th><td><input type="text" name="mitigasi" class="form-control" value="<?= $mitigasi ?>"></td></tr>
 	<tr><th>Foto1</th><td>
 	<?php 
       if($aksi == "edit"){
