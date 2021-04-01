@@ -4,8 +4,8 @@
  <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>No</th>
                   <th>Tgl</th>
+                  <th>No</th>
                   <th>UPT</th>
                   <th>ULTG</th>
                   <th>Penghantar</th>
@@ -35,18 +35,29 @@
                  <tbody>
                  <?php $no=1; foreach($data as $admin): ?>
                  <tr>
+                  <td><?= $admin['tgl'] ?></td>
                  <td><?= $no ?></td>
-                 <td><?= $admin['kode'] ?></td> 
-                 <td><?= $admin['tl'] ?></td>
-                 <td><?= $admin['wilayah'] ?></td>
-                 <td><?= $admin['skor'] ?></td>
-                 <td><font color="red"><b><?= $admin['status'] ?></b></font></td> 
-                 <td><?= $admin['tgl'] ?></td>
+                 <td><?= $admin['upt'] ?></td> 
+                 <td><?= $admin['ultg'] ?></td>
+                 <td><?= $admin['penghantar'] ?></td>
+                 <td><?= $admin['kv'] ?></td>
+                 <td><font color="red"><b><?= $admin['tower'] ?></b></font></td> 
+                 
                  <td><?= $admin['jenis'] ?></td>
-                  <td><?= $admin['rincian'] ?></td>
-                 <td><?= $admin['penyebab'] ?></td>
-                 <td><?= $admin['kontrol'] ?></td>
-                 <td><?= $admin['rencana'] ?></td>
+                <td><?= $admin['kkp'] ?></td>
+                 <td><?= $admin['kelling'] ?></td>
+                <td><?= $admin['kelpo'] ?></td>
+                <td><?= $admin['kelfo'] ?></td>
+                 <td><?= $admin['skoli'] ?></td>
+                 <td><?= $admin['skopo'] ?></td>
+                 <td><?= $admin['skohu'] ?></td>
+                 <td><?= $admin['klali'] ?></td>
+                 <td><?= $admin['klapo'] ?>
+                 <td><?= $admin['klahu'] ?></td>
+                 <td><?= $admin['anomali'] ?></td>
+                 <td><?= $admin['tautan'] ?>
+                 <td><?= $admin['risiko'] ?></td>
+                 <td><?= $admin['mitigasi'] ?></td>
                  <td><?= $admin['penanganan'] ?></td>
                  <td><?= $admin['keterangan'] ?></td>
                   <td><img src="<?= base_url('template/data/'.$admin['foto']) ?>" class="img-responsive" style="width: 100px;height: 100xp"></td>
