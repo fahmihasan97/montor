@@ -69,7 +69,6 @@
     						 <option value="Pemecutan Kelod - Bandara">Pemecutan Kelod - Bandara</option>
     						 <option value="Pesanggaran - Nusadua">Pesanggaran - Nusadua</option>
     						 <option value="PLTU Gresik  - Altaprima">PLTU Gresik  - Altaprima</option>
-
     						 <option value="Negara - Gilimanuk">Negara - Gilimanuk</option>
     						 <option value="New Pacitan - New Ponorogo">New Pacitan - New Ponorogo</option>
     						 <option value="New Ponorogo - Pacitan">New Ponorogo - Pacitan</option>
@@ -81,34 +80,34 @@
     						 <option value="Pesanggaran - Nusadua">Pesanggaran - Nusadua</option>
     						 <option value="PLTU Gresik  - Altaprima">PLTU Gresik  - Altaprima</option>
 
+    						 <option value="PLTU Gresik - Tandes">PLTU Gresik - Tandes</option>
+    						 <option value="PLTU Pacitan - New Pacitan">PLTU Pacitan - New Pacitan</option>
+    						 <option value="PLTU Pacitan - New Pacitan - Nguntoronadi">PLTU Pacitan - New Pacitan - Nguntoronadi</option>
+    						 <option value="Probolinggo - Gondangwetan">Probolinggo - Gondangwetan</option>
+    						 <option value="Probolinggo - Lumajang">Probolinggo - Lumajang</option>
+    						 <option value="Sambikerep - Waru">Sambikerep - Waru</option>
+    						 <option value="Sanur - Gianyar">Sanur - Gianyar</option>
+    						 <option value="Segoromadu - Cerme">Segoromadu - Cerme</option>
+    						 <option value="Segoromadu - Lamongan">Segoromadu - Lamongan</option>
+    						 <option value="Segoromadu - Petro">Segoromadu - Petro</option>
+    						 <option value="Sekarputih - Siman - Mendalan">Sekarputih - Siman - Mendalan</option>
+    						 <option value="Sekarputih - Tarik">Sekarputih - Tarik</option>
+	                         <option value="Sekarputih - Ngoro">Sekarputih - Ngoro</option>
+	                         <option value="Sekarputih - Mojoagung">Sekarputih - Mojoagung</option>
+	                         <option value="Sengkaling - Mendalan">Sengkaling - Mendalan</option>
 
-	                          <option value="Sengkaling-Mendalan">Sengkaling - Mendalan</option>
-	                         
-	                          <option value="Ungaran-Ngimbang">Ungaran-Ngimbang</option>
-	                          <option value="Ngimbang-Krian">Ngimbang-Krian</option>
-	                          <option value="Surabaya Barat - Sawahan">Surabaya Barat - Sawahan</option>
-	                          <option value="Surabaya Barat - Tandes">Surabaya Barat - Tandes</option>
-	                         
-	                          <option value="Sekarputih - Siman - Mendalan">Sekarputih - Siman - Mendalan</option>
-	                          <option value="Tarik - Driyorejo + Miwon">Tarik - Driyorejo + Miwon</option>
-	                          <option value="Siman - Mendalan + Sekarputih">Siman - Mendalan + Sekarputih</option>
-	                          <option value="Sekarputih - Tarik">Sekarputih - Tarik</option>
-	                          <option value="Sekarputih - Ngoro">Sekarputih - Ngoro</option>
-	                          
-	                          <option value="Surabaya Barat - Balongbendo">Surabaya Barat - Balongbendo</option>
-	                          
-	                         
-	                         
-	                          <option value="Sekarputih - Mojoagung">Sekarputih - Mojoagung</option>
-
-
-	                          <option value="Surabaya Barat - Altaprima">Surabaya Barat - Altaprima</option>
-	                          	<option value="Kediri - Pedan">Kediri - Pedan</option>
-	                          <option value="Kebonagung - Sengguruh">Kebonagung - Sengguruh</option>
-	                          <option value="Kebonagung - Sutami">Kebonagung - Sutami</option>
-	                          <option value="Sekarputih - Mojoagung">Sekarputih - Mojoagung</option>
-
-                              </select></td></tr>
+	                         <option value="Siman - Mendalan + Sekarputih">Siman - Mendalan + Sekarputih</option>
+    						 <option value="Sukolilo - Rungkut">Sukolilo - Rungkut</option>
+    						 <option value="Surabaya Barat - Altaprima">Surabaya Barat - Altaprima</option>
+    						 <option value="Surabaya Barat - Balongbendo">Surabaya Barat - Balongbendo</option>
+    						 <option value="Surabaya Barat - Sawahan">Surabaya Barat - Sawahan</option>
+    						 <option value="Surabaya Barat - Tandes">Surabaya Barat - Tandes</option>
+    						 <option value="Tarik - Driyorejo + Miwon">Tarik - Driyorejo + Miwon</option>
+	                         <option value="Ungaran - Krian">Ungaran - Krian</option>
+	                         <option value="Ungaran - Ngimbang">Ungaran - Ngimbang</option>
+	                         <option value="Waru - Buduran - Maspion">Waru - Buduran - Maspion</option>
+	                         <option value="Waru - Buduran - Sidoarjo">Waru - Buduran - Sidoarjo</option>
+                             </select></td></tr>
 	<tr><th>Penghantar</th><td><input type="text" name="penghantar" class="form-control" value="<?= $penghantar ?>"></td></tr>
 	<tr><th>KV</th><td><input type="number" name="kv" class="form-control" value="<?= $kv ?>"></td></tr>
 	<tr><th>Jenis Tower</th><td><input type="text" name="jenis" class="form-control" value="<?= $jenis ?>"></td></tr>
