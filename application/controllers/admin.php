@@ -182,18 +182,29 @@ class Admin extends CI_controller
       $config['allowed_types'] = 'bmp|jpg|png|jpeg';  
       $config['file_name'] = 'foto_'.time();  
       $this->load->library('upload', $config);
-      $this->upload->initialize($config);
-      $upload = $this->upload->do_upload('file');
+      //$this->upload->initialize($config);  
+
+      $this->upload->do_upload('file1');
+      $file1 = $this->upload->data();
+      $this->upload->do_upload('file2');
+      $file2 = $this->upload->data();
+      $this->upload->do_upload('file3');
+      $file3 = $this->upload->data();
+      $this->upload->do_upload('file4');
+      $file4 = $this->upload->data();
+
+      $upload = true;
+      
       if($upload){
         $SQLinsert=array(
         'upt'=>$this->input->post('upt'),
         'ultg'=>$this->input->post('ultg'),
         'penghantar'=>$this->input->post('penghantar'),
         'kv'=>$this->input->post('kv'),
-        'foto'=>$this->upload->file_name,
-        'foto1'=>$this->upload->file_name,
-        'foto2'=>$this->upload->file_name,
-        'foto3'=>$this->upload->file_name,
+        'foto'=>$file1['file_name'],
+        'foto1'=>$file2['file_name'],
+        'foto2'=>$file3['file_name'],
+        'foto3'=>$file4['file_name'],
         'tower'=>$this->input->post('tower'),
         'tgl'=>$this->input->post('tgl'),
         'jenis'=>$this->input->post('jenis'),
@@ -268,25 +279,52 @@ class Admin extends CI_controller
         'penanganan'=>$data['penanganan'],
         'keterangan'=>$data['keterangan']); 
     if (isset($_POST['kirim'])) {     
-    if(empty($_FILES['file']['name'])){
-      $this->session->set_flashdata('pesan',$pesan);
-      redirect(base_url('admin/krisis'));
-    }else{
+    
+    // if(empty($_FILES['file']['name'])){
+    //   $this->session->set_flashdata('pesan',$pesan);
+    //   redirect(base_url('admin/krisis'));
+    // }else{
         $config['upload_path'] = './template/data/'; 
         $config['allowed_types'] = 'bmp|jpg|png|jpeg';  
         $config['file_name'] = 'foto_'.time(); 
 
         $this->load->library('upload', $config);
-        $this->upload->initialize($config);
-        $upload = $this->upload->do_upload('file');
-  
-        if($upload){
+          
+        $file1 = $data['foto'];
+        if (!empty($_FILES['file1']['name'])) {
+          # code...
+          $this->upload->do_upload('file1');
+          $fil = $this->upload->data();
+          $file1 = $fil['file_name'];
+        }
+        $file2 = $data['foto1'];
+        if (!empty($_FILES['file2']['name'])) {
+          # code...
+          $this->upload->do_upload('file2');
+          $fil = $this->upload->data();
+          $file2 = $fil['file_name'];
+        }
+        $file3 = $data['foto2'];
+        if (!empty($_FILES['file3']['name'])) {
+          # code...
+          $this->upload->do_upload('file3');
+          $fil = $this->upload->data();
+          $file3 = $fil['file_name'];
+        }
+        $file4 = $data['foto3'];
+        if (!empty($_FILES['file4']['name'])) {
+          # code...
+          $this->upload->do_upload('file4');
+          $fil = $this->upload->data();
+          $file4 = $fil['file_name'];
+        }
+ 
+        if(true){
           $SQLinsert=array(
           'upt'=>$this->input->post('upt'),
           'ultg'=>$this->input->post('ultg'),
           'penghantar'=>$this->input->post('penghantar'),
           'kv'=>$this->input->post('kv'),
-          'status'=>$this->input->post('status'),
           'tgl'=>$this->input->post('tgl'),
           'jenis'=>$this->input->post('jenis'),
           'tower'=>$this->input->post('tower'),
@@ -305,10 +343,10 @@ class Admin extends CI_controller
           'mitigasi'=>$this->input->post('mitigasi'),
           'penanganan'=>$this->input->post('penanganan'),
           'keterangan'=>$this->input->post('keterangan'),
-          'foto'=>$this->upload->file_name,
-          'foto1'=>$this->upload->file_name,
-          'foto2'=>$this->upload->file_name,
-          'foto3'=>$this->upload->file_name);
+          'foto'=>$file1,
+          'foto1'=>$file2,
+          'foto2'=>$file3,
+          'foto3'=>$file4);
           $cek=$this->db->update('krisis',$SQLinsert,array('id_krisis'=>$id));
           if($cek){
               $pesan='<div class="alert alert-success alert-dismissible">
@@ -324,7 +362,7 @@ class Admin extends CI_controller
         }else{
           echo $this->upload->display_errors();
         }
-     }
+     
     }else{
       tpl('admin/krisis_form',$x);
     }
@@ -528,12 +566,13 @@ public function profil_krisis($value='')
 
 
 
-public function keluar($value='')
-{
+  public function keluar($value='')
+  {
 
-$this->session->sess_destroy();
-echo "<scrip>alert('Anda Telah Keluar Dari Halaman Administrator')</script>";;
-redirect(base_url(''));
-}
-  
+  $this->session->sess_destroy();
+  echo "<scrip>alert('Anda Telah Keluar Dari Halaman Administrator')</script>";;
+  redirect(base_url(''));
+  }
+   
+
 }

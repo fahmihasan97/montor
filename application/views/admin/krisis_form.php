@@ -166,8 +166,8 @@
       }else{
 
       }
-	?>
-<input type="file" name="file" value="" class="form-control">
+	?> 
+<input type="file" name="file1" value="" class="form-control">
 </td></tr>
 <tr><th>Foto2</th><td>
 	<?php 
@@ -177,7 +177,7 @@
 
       }
 	?>
-<input type="file" name="file" value="" class="form-control">
+<input type="file" name="file2" value="" class="form-control">
 </td></tr>
 <tr><th>Foto3</th><td>
 	<?php 
@@ -187,7 +187,7 @@
 
       }
 	?>
-<input type="file" name="file" value="" class="form-control">
+<input type="file" name="file3" value="" class="form-control">
 </td></tr>
 <tr><th>Foto4</th><td>
 	<?php 
@@ -197,7 +197,7 @@
 
       }
 	?>
-<input type="file" name="file" value="" class="form-control">
+<input type="file" name="file4" value="" class="form-control">
 </td></tr>
     <tr><td></td><th><input type="submit" name="kirim" value="Submit" class="btn btn-primary"></th></tr>
     </form>	 
