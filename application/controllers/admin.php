@@ -500,68 +500,68 @@ public function profil()
 }
 
 
-public function profil_krisis($value='')
-{
-  if(isset($_POST['kirim'])){
-    $vaPassword = array('password'=>$this->input->post('password'));
-    $vaWhere    = array('id_krisis'=>$this->session->userdata('id_krisis'));
-    if(isset($_FILES['gambar']['name'])){
-      $config['upload_path'] = './template/data/'; 
-      $config['allowed_types'] = 'bmp|jpg|png';  
-      $config['file_name'] = 'foto_'.time();  
-      $this->load->library('upload', $config);
-      $this->upload->initialize($config);
-      if($this->upload->do_upload('gambar')){
-        $vaFoto     = array('foto'=>$this->upload->file_name);
-        $this->db->update('krisis',$vaFoto,$vaWhere);  
-      }else{
-        echo $this->upload->display_errors();
-      }
-    }
+// public function profil_krisis($value='')
+// {
+//   if(isset($_POST['kirim'])){
+//     $vaPassword = array('password'=>$this->input->post('password'));
+//     $vaWhere    = array('id_krisis'=>$this->session->userdata('id_krisis'));
+//     if(isset($_FILES['gambar']['name'])){
+//       $config['upload_path'] = './template/data/'; 
+//       $config['allowed_types'] = 'bmp|jpg|png';  
+//       $config['file_name'] = 'foto_'.time();  
+//       $this->load->library('upload', $config);
+//       $this->upload->initialize($config);
+//       if($this->upload->do_upload('gambar')){
+//         $vaFoto     = array('foto'=>$this->upload->file_name);
+//         $this->db->update('krisis',$vaFoto,$vaWhere);  
+//       }else{
+//         echo $this->upload->display_errors();
+//       }
+//     }
     
-    if($this->input->post('password') !== ""){
-      $this->db->update('krisis',$vaPassword,$vaWhere);  
-    }
+//     if($this->input->post('password') !== ""){
+//       $this->db->update('krisis',$vaPassword,$vaWhere);  
+//     }
     
-    $sql=array(
-      'nip'=>$this->input->post('nip'),
-      'nama'=>$this->input->post('nama'),
-      'jk'=>$this->input->post('jk'),
-      'agama'=>$this->input->post('agama'),
-      'pendidikan'=>$this->input->post('pendidikan'),
-      'alamat'=>$this->input->post('alamat'),
-      'username'=>$this->input->post('username'),
-    );
+//     $sql=array(
+//       'nip'=>$this->input->post('nip'),
+//       'nama'=>$this->input->post('nama'),
+//       'jk'=>$this->input->post('jk'),
+//       'agama'=>$this->input->post('agama'),
+//       'pendidikan'=>$this->input->post('pendidikan'),
+//       'alamat'=>$this->input->post('alamat'),
+//       'username'=>$this->input->post('username'),
+//     );
     
     
-    $cek=$this->db->update('krisis',$sql,$vaWhere);
-    if($cek){
-       $pesan='<div class="alert alert-success alert-dismissible">
-                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                  <h4><i class="icon fa fa-check"></i> Success!</h4>
-                 Data Berhasil Di Edit.
-                </div>';
-      $this->session->set_flashdata('pesan',$pesan);
-      redirect(base_url('admin/profil_krisis'));
-    }else{
-      buat_alert('ERROR');
-    }
-  }else{
-    $data=$this->db->get_where('krisis',array('id_krisis' =>$this->session->userdata('id_krisis')))->row_array();
-    $x = array(
-       'judul' =>'.:: Edit Profil Anda ::.',
-       'aksi'=>'edit',
-       'foto'=>$data['foto'],
-       'nama'=>$data['nama'],
-       'jk'=>$data['jk'],
-       'alamat'=>$data['alamat'],
-       'nip'=>$data['nip'],
-       'agama'=>$data['agama'],
-       'pendidikan'=>$data['pendidikan'],
-       'username'=>$data['username']);
-      tpl('admin/profil_krisis',$x);
-  }
-}
+//     $cek=$this->db->update('krisis',$sql,$vaWhere);
+//     if($cek){
+//        $pesan='<div class="alert alert-success alert-dismissible">
+//                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+//                   <h4><i class="icon fa fa-check"></i> Success!</h4>
+//                  Data Berhasil Di Edit.
+//                 </div>';
+//       $this->session->set_flashdata('pesan',$pesan);
+//       redirect(base_url('admin/profil_krisis'));
+//     }else{
+//       buat_alert('ERROR');
+//     }
+//   }else{
+//     $data=$this->db->get_where('krisis',array('id_krisis' =>$this->session->userdata('id_krisis')))->row_array();
+//     $x = array(
+//        'judul' =>'.:: Edit Profil Anda ::.',
+//        'aksi'=>'edit',
+//        'foto'=>$data['foto'],
+//        'nama'=>$data['nama'],
+//        'jk'=>$data['jk'],
+//        'alamat'=>$data['alamat'],
+//        'nip'=>$data['nip'],
+//        'agama'=>$data['agama'],
+//        'pendidikan'=>$data['pendidikan'],
+//        'username'=>$data['username']);
+//       tpl('admin/profil_krisis',$x);
+//   }
+// }
 
 
 

@@ -141,7 +141,13 @@
 	<tr><th>Assesmen Pondasi</th><td><input type="text" name="skopo" class="form-control" value="<?= $skopo ?>"></td></tr>
 	<tr><th>Sifat Hujan</th><td><input type="text" name="skohu" class="form-control" value="<?= $skohu ?>"></td></tr>
 	<tr><th>*KLASIFIKASI</th></tr>
-	<tr><th>Asessmen Lingkungan</th><td><select class="form-control" name="kelfo" required="">
+	<tr><th>Asessmen Lingkungan</th><td><select class="form-control" name="klali" required="">
+	                          <option value="AMAN">AMAN</option>
+	                          <option value="WASPADA">WASPADA</option>
+	                          <option value="KRITIS">KRITIS</option>
+	                          <option value="-">-</option>
+                              </select></td></tr>
+    <tr><th>Assesmen Pondasi</th><td><select class="form-control" name="klapo" required="">
 	                          <option value="AMAN">AMAN</option>
 	                          <option value="WASPADA">WASPADA</option>
 	                          <option value="KRITIS">KRITIS</option>
