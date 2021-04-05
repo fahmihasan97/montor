@@ -37,6 +37,12 @@
  
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+  <script>
+  $(document).ready(function(){
+    // Sembunyikan alert validasi kosong
+    $("#kosong").hide();
+  });
+  </script>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -187,7 +193,7 @@ if($this->session->userdata('level') =="admin"){
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?= base_url('admin/krisis'); ?>"><i class="fa fa-circle-o"></i> Rincian</a></li>
+            <li><a href="<?= base_url('admin/overview'); ?>"><i class="fa fa-circle-o"></i> Rincian</a></li>
             
           </ul>
         </li>        

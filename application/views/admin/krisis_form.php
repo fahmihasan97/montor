@@ -1,6 +1,7 @@
 <table class="table table-reposive">
 	<form action="" method="POST" enctype="multipart/form-data">
 	<tr><th>Tanggal</th><td><input type="date" name="tgl" class="form-control" value="<?= $tgl ?>"></td></tr>
+	<tr><th>Update</th><td><input type="date" name="update" class="form-control" value="<?= $update ?>"></td></tr>
 	<tr><th>UPT</th><td><select class="form-control" name="upt" required="">
 	                          <option value="UPT Malang">UPT Malang</option>
 	                          <option value="UPT Bali">UPT Bali</option>

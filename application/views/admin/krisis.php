@@ -1,10 +1,12 @@
 <a href="<?= base_url('admin/krisis_tambah/') ?>" class="btn btn-primary">Tambah</a>
 <br /><br /><br />
 <?= $this->session->flashdata('pesan') ?>
+<a href="<?php echo base_url("index.php/admin/form"); ?>">Import Data</a><br><br>
  <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>Tgl</th>
+                  <th>Update</th>
                   <th>No</th>
                   <th>UPT</th>
                   <th>ULTG</th>
@@ -39,6 +41,7 @@
                  <?php $no=1; foreach($data as $admin): ?>
                  <tr>
                   <td><?= $admin['tgl'] ?></td>
+                  <td><?= $admin['update'] ?></td>
                  <td><?= $no ?></td>
                  <td><?= $admin['upt'] ?></td> 
                  <td><?= $admin['ultg'] ?></td>

@@ -2,6 +2,7 @@
  if ( ! defined('BASEPATH')) exit(header('Location:../'));
 class Admin extends CI_controller
 {
+   private $filename = "import_data"; // Kita tentukan nama filenya
   function __construct()
   {
    parent:: __construct();
@@ -26,7 +27,7 @@ class Admin extends CI_controller
   public function overview()
   {
    $x = array('judul' =>'Data overview', 
-              'data'=>$this->db->get('overview')->result_array()); 
+              'data'=>$this->db->get('krisis')->result_array()); 
    tpl('admin/overview',$x);
   }
 
@@ -41,95 +42,7 @@ class Admin extends CI_controller
     tpl('admin/details', $x);
   }
 
-  public function overview_tambah()
-  {
-  $x = array('judul'        => 'Tambah Data' ,
-              'aksi'        => 'tambah',
-              'tl'=> "",
-              'tower'    => "",
-              'jenis'=> "",
-              'status'    => "",
-              'tgl'=> "",
-              'update'    => "",
-              'penanganan'   => ""); 
-    if(isset($_POST['kirim'])){
-      $inputData=array(
-        'tl'=>$this->input->post('tl'),
-        'tower'    =>$this->input->post('tower'),
-        'jenis'=>$this->input->post('jenis'),
-        'status'    =>$this->input->post('status'),
-        'tgl'=>$this->input->post('tgl'),
-        'update'    =>$this->input->post('update'),
-        'penanganan'         =>$this->input->post('penanganan'));
-      $cek=$this->db->insert('overview',$inputData);
-      if($cek){
-        $pesan='<div class="alert alert-success alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <h4><i class="icon fa fa-check"></i> Success!</h4>
-               Data Berhasil Di Ditambahkan.
-              </div>';
-    $this->session->set_flashdata('pesan',$pesan);
-    redirect(base_url('admin/overview'));
-      }else{
-       echo "ERROR input Data";
-      }
-    }else{
-     tpl('admin/overview_form',$x);
-    }
-  }
-    
-  public function overview_edit($id='')
-  {
-  $sql=$this->db->get_where('overview',array('id_overview'=>$id))->row_array(); 
-  $x = array('judul'        =>'Tambah Data' ,
-              'aksi'        =>'tambah',
-        'tl'=>$sql['tl'],
-        'tower'    =>$sql['tower'],
-        'jenis'=>$sql['jenis'],
-        'status'    =>$sql['status'],
-        'tgl'    =>$sql['tgl'],
-        'update'=>$sql['update'],
-        'penanganan'         =>$sql['penanganan']); 
-    if(isset($_POST['kirim'])){
-      $inputData=array(
-        'tl'=>$this->input->post('tl'),
-        'tower'    =>$this->input->post('tower'),
-        'jenis'=>$this->input->post('jenis'),
-        'status'    =>$this->input->post('status'),
-        'tgl'=>$this->input->post('tgl'),
-        'update'    =>$this->input->post('update'),
-        'penanganan'         =>$this->input->post('penanganan'));
-      $cek=$this->db->update('overview',$inputData,array('id_overview'=>$id));
-      if($cek){
-        $pesan='<div class="alert alert-success alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <h4><i class="icon fa fa-check"></i> Success!</h4>
-               Data Berhasil Di Diedit.
-              </div>';
-    $this->session->set_flashdata('pesan',$pesan);
-    redirect(base_url('admin/overview'));
-      }else{
-       echo "ERROR input Data";
-      }
-    }else{
-     tpl('admin/overview_form',$x);
-    }
-  }
 
-  
-  public function overview_hapus($id='')
-  {
-   $cek=$this->db->delete('overview',array('id_overview'=>$id));
-   if ($cek) {
-    $pesan='<div class="alert alert-success alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <h4><i class="icon fa fa-check"></i> Success!</h4>
-               Data Berhasil Di Hapus.
-              </div>';
-    $this->session->set_flashdata('pesan',$pesan);
-    redirect(base_url('admin/overview'));
-   }
-  }
 
   public function krisis($value='')
   {
@@ -154,6 +67,7 @@ class Admin extends CI_controller
               'kv'    => '',
               'tower'=> '',
               'tgl'    => '',
+              'update' => '',
               'jenis'=> '',
               'kkp'    => '',
               'kelling'=> '',
@@ -207,6 +121,7 @@ class Admin extends CI_controller
         'foto3'=>$file4['file_name'],
         'tower'=>$this->input->post('tower'),
         'tgl'=>$this->input->post('tgl'),
+        'update'=>$this->input->post('update'),
         'jenis'=>$this->input->post('jenis'),
         'kkp'=>$this->input->post('kkp'),
         'kelling'=>$this->input->post('kelling'),
@@ -256,6 +171,7 @@ class Admin extends CI_controller
         'penghantar'=>$data['penghantar'],
         'kv'    =>$data['kv'],
         'tgl'=>$data['tgl'],
+        'update'=>$data['update'],
         'jenis'=>$data['jenis'],
         'tower'=>$data['tower'],
         'foto'=>$data['foto'],
@@ -326,6 +242,7 @@ class Admin extends CI_controller
           'penghantar'=>$this->input->post('penghantar'),
           'kv'=>$this->input->post('kv'),
           'tgl'=>$this->input->post('tgl'),
+          'update'=>$this->input->post('update'),
           'jenis'=>$this->input->post('jenis'),
           'tower'=>$this->input->post('tower'),
           'kkp'=>$this->input->post('kkp'),
@@ -572,6 +489,90 @@ public function profil()
   $this->session->sess_destroy();
   echo "<scrip>alert('Anda Telah Keluar Dari Halaman Administrator')</script>";;
   redirect(base_url(''));
+  }
+
+  public function form(){
+    $data = array(); // Buat variabel $data sebagai array
+    
+    if(isset($_POST['preview'])){ // Jika user menekan tombol Preview pada form
+      // lakukan upload file dengan memanggil function upload yang ada di SiswaModel.php
+      $upload = $this->m_admin->upload_file($this->filename);
+      
+      if($upload['result'] == "success"){ // Jika proses upload sukses
+        // Load plugin PHPExcel nya
+        include APPPATH.'third_party/PHPExcel/PHPExcel.php';
+        
+        $excelreader = new PHPExcel_Reader_Excel2007();
+        $loadexcel = $excelreader->load('excel/'.$this->filename.'.xlsx'); // Load file yang tadi diupload ke folder excel
+        $sheet = $loadexcel->getActiveSheet()->toArray(null, true, true ,true);
+        
+        // Masukan variabel $sheet ke dalam array data yang nantinya akan di kirim ke file form.php
+        // Variabel $sheet tersebut berisi data-data yang sudah diinput di dalam excel yang sudha di upload sebelumnya
+        $data['sheet'] = $sheet; 
+      }else{ // Jika proses upload gagal
+        $data['upload_error'] = $upload['error']; // Ambil pesan error uploadnya untuk dikirim ke file form dan ditampilkan
+      }
+    }
+    
+    tpl('admin/form',$data);
+  }
+
+  public function import(){
+    // Load plugin PHPExcel nya
+    include APPPATH.'third_party/PHPExcel/PHPExcel.php';
+    
+    $excelreader = new PHPExcel_Reader_Excel2007();
+    $loadexcel = $excelreader->load('excel/'.$this->filename.'.xlsx'); // Load file yang telah diupload ke folder excel
+    $sheet = $loadexcel->getActiveSheet()->toArray(null, true, true ,true);
+    
+    // Buat sebuah variabel array untuk menampung array data yg akan kita insert ke database
+    $data = array();
+    
+    $numrow = 1;
+    foreach($sheet as $row){
+      // Cek $numrow apakah lebih dari 1
+      // Artinya karena baris pertama adalah nama-nama kolom
+      // Jadi dilewat saja, tidak usah diimport
+      if($numrow > 1){
+        // Kita push (add) array data ke variabel data
+        array_push($data, array(
+          'tgl'=>$row['A'],
+          'update'=>$row['B'],
+          'upt'=>$row['C'], 
+          'ultg'=>$row['D'],
+          'penghantar'=>$row['E'],
+          'kv'=>$row['F'],
+          'tower'=>$row['G'], 
+          'jenis'=>$row['H'],
+          'kkp'=>$row['I'],
+          'kelling'=>$row['J'],
+          'kelpo'=>$row['K'], 
+          'kelfo'=>$row['L'],
+          'skoli'=>$row['M'],
+          'skopo'=>$row['N'],
+          'skohu'=>$row['O'], 
+          'klali'=>$row['P'],
+          'klapo'=>$row['Q'],
+          'klahu'=>$row['R'], 
+          'anomali'=>$row['S'],
+          'tautan'=>$row['T'],
+          'penanganan'=>$row['U'],
+          'keterangan'=>$row['V'],
+          'risiko'=>$row['W'],
+          'mitigasi'=>$row['X'], 
+          'foto'=>$row['Y'],
+          'foto1'=>$row['Z'],
+          'foto2'=>$row['AA'], 
+          'foto3'=>$row['AB']
+        ));
+      }
+      
+      $numrow++; // Tambah 1 setiap kali looping
+    }
+    // Panggil fungsi insert_multiple yg telah kita buat sebelumnya di model
+    $this->m_admin->insert_multiple($data);
+    
+    redirect("admin"); // Redirect ke halaman awal (ke controller siswa fungsi index)
   }
    
 

@@ -15,39 +15,35 @@ public function data_details($data)
   {
 
     return $this->db->get_where('krisis', $data);
+}
+
+// Fungsi untuk melakukan proses upload file
+  public function upload_file($filename){
+    $this->load->library('upload'); // Load librari upload
+    
+    $config['upload_path'] = './excel/';
+    $config['allowed_types'] = 'xlsx';
+    $config['max_size']  = '2048';
+    $config['overwrite'] = true;
+    $config['file_name'] = $filename;
+  
+    $this->upload->initialize($config); // Load konfigurasi uploadnya
+    if($this->upload->do_upload('file')){ // Lakukan upload dan Cek jika proses upload berhasil
+      // Jika berhasil :
+      $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');
+      return $return;
+    }else{
+      // Jika gagal :
+      $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
+      return $return;
+    }
+  }
+  
+  // Buat sebuah fungsi untuk melakukan insert lebih dari 1 data
+  public function insert_multiple($data){
+    $this->db->insert_batch('krisis', $data);
   }
 
-public function count_data($table){
-  return $this->db->query("SELECT COUNT(*) AS jml_data FROM $table");
-}
 
-public function cek_absen($id_krisis='',$tanggal='')
-{
- return $this->db->query("SELECT * from absen where id_krisis='$id_krisis' AND tanggal='$tanggal'");
-}
-
-public function gaji_krisis()
-{
- return $this->db->query("SELECT * from krisis a, overview b ,gaji d where a.id_overview=b.id_overview AND d.id_krisis=a.id_krisis group by d.id_krisis");
-}
-
-public function cari_krisis($cari)
-{
- return $this->db->query("SELECT * from krisis a ,overview b where a.id_overview=b.id_overview AND a.id_krisis='$cari'");
-}
-
-public function krisis_data()
-{
- return $this->db->query("SELECT * from krisis a ,overview b  where a.id_overview=b.id_overview group by a.id_krisis");
-}
-
-
-
-
-
-public function cari_overview($id='')
-{
- return $this->db->query("SELECT * from krisis a, overview b where a.id_krisis='$id' AND a.id_overview=b.id_overview group by a.id_krisis");
-}
 
 }
