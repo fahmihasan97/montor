@@ -6,7 +6,7 @@
 
 
  <!-- <table class="table table-reposive"> -->
-  <form action="<?php echo base_url("index.php/admin/form"); ?>" method="POST" enctype="multipart/form-data">
+  <form action="<?php echo base_url("admin/form"); ?>" method="POST" enctype="multipart/form-data">
   <input type="file" name="file">
   <input type="submit" name="preview" value="Preview">
   </form>
@@ -20,7 +20,7 @@
     }
 
     // Buat sebuah tag form untuk proses import data ke database
-    echo "<form method='post' action='".base_url("index.php/admin/import")."'>";
+    echo "<form method='post' action='".base_url("admin/import")."'>";
 
     // Buat sebuah div untuk alert validasi kosong
     echo "<div style='color: red;' id='kosong'>
@@ -117,9 +117,9 @@
         $tower_td = ( ! empty($tower))? "" : " style='background: #E07171;'"; 
         $jenis_td = ( ! empty($jenis))? "" : " style='background: #E07171;'"; 
         $kkp_td = ( ! empty($kkp))? "" : " style='background: #E07171;'"; 
-        $kleli_td = ( ! empty($kleli))? "" : " style='background: #E07171;'";  
-        $klepo_td = ( ! empty($kelpo))? "" : " style='background: #E07171;'";
-        $klefo_td = ( ! empty($kelfo))? "" : " style='background: #E07171;'"; 
+        $kelling_td = ( ! empty($kelling))? "" : " style='background: #E07171;'";  
+        $kelpo_td = ( ! empty($kelpo))? "" : " style='background: #E07171;'";
+        $kelfo_td = ( ! empty($kelfo))? "" : " style='background: #E07171;'"; 
         $skoli_td = ( ! empty($skoli))? "" : " style='background: #E07171;'"; 
         $skopo_td = ( ! empty($skopo))? "" : " style='background: #E07171;'";  
         $skohu_td = ( ! empty($skohu))? "" : " style='background: #E07171;'";
@@ -128,7 +128,8 @@
         $klahu_td = ( ! empty($klahu))? "" : " style='background: #E07171;'";  
         $anomali_td = ( ! empty($anomali))? "" : " style='background: #E07171;'";
         $tautan_td = ( ! empty($tautan))? "" : " style='background: #E07171;'"; 
-        $risiko_td = ( ! empty($risiko))? "" : " style='background: #E07171;'"; 
+        $risiko_td = ( ! empty($risiko))? "" : " style='background: #E07171;'";
+        $mitigasi_td = ( ! empty($mitigasi))? "" : " style='background: #E07171;'";  
         $penanganan_td = ( ! empty($penanganan))? "" : " style='background: #E07171;'";  
         $keterangan_td = ( ! empty($keterangan))? "" : " style='background: #E07171;'";
         $foto_td = ( ! empty($foto))? "" : " style='background: #E07171;'"; 
@@ -151,7 +152,7 @@
         echo "<td".$tower_td.">".$tower."</td>";
         echo "<td".$jenis_td.">".$jenis."</td>";
         echo "<td".$kkp_td.">".$kkp."</td>";
-        echo "<td".$kalling_td.">".$kelling."</td>";
+        echo "<td".$kelling_td.">".$kelling."</td>";
         echo "<td".$kelpo_td.">".$kelpo."</td>";
         echo "<td".$kelfo_td.">".$kelfo."</td>";
         echo "<td".$skoli_td.">".$skoli."</td>";
@@ -192,7 +193,7 @@
 
       // Buat sebuah tombol untuk mengimport data ke database
       echo "<button type='submit' name='import'>Import</button>";
-      echo "<a href='".base_url("index.php/admin")."'>Cancel</a>";
+      echo "<a href='".base_url("admin")."'>Cancel</a>";
     }
 
     echo "</form>";

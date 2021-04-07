@@ -1,7 +1,8 @@
 <a href="<?= base_url('admin/krisis_tambah/') ?>" class="btn btn-primary">Tambah</a>
 <br /><br /><br />
 <?= $this->session->flashdata('pesan') ?>
-<a href="<?php echo base_url("index.php/admin/form"); ?>">Import Data</a><br><br>
+<a href="<?php echo base_url("admin/form"); ?>">Import Data</a><br>
+<a href="<?php echo base_url("admin/export"); ?>">Export Data</a><br>
  <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -38,6 +39,7 @@
                 </tr>
                 </thead>
                  <tbody>
+                  
                  <?php $no=1; foreach($data as $admin): ?>
                  <tr>
                   <td><?= $admin['tgl'] ?></td>

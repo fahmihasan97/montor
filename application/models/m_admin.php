@@ -8,7 +8,7 @@ class M_admin extends CI_model
 	
 public function krisis($value='')
 {
- return $this->db->query("SELECT * from krisis a, overview b where a.id_overview=b.id_overview group by a.id_krisis");
+ return $this->db->query("SELECT * from krisis");
 }
 
 public function data_details($data)
