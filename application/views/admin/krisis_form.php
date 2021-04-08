@@ -91,11 +91,11 @@
     						 <option value="Segoromadu - Petro">Segoromadu - Petro</option>
     						 <option value="Sekarputih - Siman - Mendalan">Sekarputih - Siman - Mendalan</option>
     						 <option value="Sekarputih - Tarik">Sekarputih - Tarik</option>
-	                         <option value="Sekarputih - Ngoro">Sekarputih - Ngoro</option>
-	                         <option value="Sekarputih - Mojoagung">Sekarputih - Mojoagung</option>
-	                         <option value="Sengkaling - Mendalan">Sengkaling - Mendalan</option>
+	               <option value="Sekarputih - Ngoro">Sekarputih - Ngoro</option>
+	               <option value="Sekarputih - Mojoagung">Sekarputih - Mojoagung</option>
+	               <option value="Sengkaling - Mendalan">Sengkaling - Mendalan</option>
 
-	                         <option value="Siman - Mendalan + Sekarputih">Siman - Mendalan + Sekarputih</option>
+	               <option value="Siman - Mendalan + Sekarputih">Siman - Mendalan + Sekarputih</option>
     						 <option value="Sukolilo - Rungkut">Sukolilo - Rungkut</option>
     						 <option value="Surabaya Barat - Altaprima">Surabaya Barat - Altaprima</option>
     						 <option value="Surabaya Barat - Balongbendo">Surabaya Barat - Balongbendo</option>
@@ -179,7 +179,7 @@
 <tr><th>Foto2</th><td>
 	<?php 
       if($aksi == "edit"){
-        echo '<img src="'.base_url('template/data/'.$foto).'" class="img-responsive" style="width:200px;height:200px">';
+        echo '<img src="'.base_url('template/data/'.$foto1).'" class="img-responsive" style="width:200px;height:200px">';
       }else{
 
       }

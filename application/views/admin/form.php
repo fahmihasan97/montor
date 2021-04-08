@@ -18,7 +18,6 @@
       echo "<div style='color: red;'>".$upload_error."</div>"; // Muncul pesan error upload
       die; // stop skrip
     }
-
     // Buat sebuah tag form untuk proses import data ke database
     echo "<form method='post' action='".base_url("admin/import")."'>";
 
@@ -27,7 +26,8 @@
     Semua data belum diisi, Ada <span id='jumlah_kosong'></span> data yang belum diisi.
     </div>";
 
-    echo "<table border='1' cellpadding='8'>
+    echo "<table id='example1' class='table table-bordered table-striped'>
+    <thead>
     <tr>
       <th colspan='5'>Preview Data</th>
     </tr>
@@ -61,6 +61,7 @@
       <th>Foto3</th>
       <th>Foto4</th>
     </tr>";
+    echo "</thead><tbody>";
 
     $numrow = 1;
     $kosong = 0;
@@ -173,7 +174,7 @@
       $numrow++; // Tambah 1 setiap kali looping
     }
 
-    echo "</table>";
+    echo "</tbody></table>";
 
     // Cek apakah variabel kosong lebih dari 0
     // Jika lebih dari 0, berarti ada data yang masih kosong
@@ -199,5 +200,8 @@
     echo "</form>";
   }
   ?>
+
+
+
  
  
