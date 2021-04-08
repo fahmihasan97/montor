@@ -179,7 +179,7 @@
 <tr><th>Foto2</th><td>
 	<?php 
       if($aksi == "edit"){
-        echo '<img src="'.base_url('template/data/'.$fot1).'" class="img-responsive" style="width:200px;height:200px">';
+        echo '<img src="'.base_url('template/data/'.$foto).'" class="img-responsive" style="width:200px;height:200px">';
       }else{
 
       }

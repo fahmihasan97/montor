@@ -1,8 +1,17 @@
-<a href="<?= base_url('admin/krisis_tambah/') ?>" class="btn btn-primary">Tambah</a>
-<br /><br /><br />
 <?= $this->session->flashdata('pesan') ?>
-<a href="<?php echo base_url("admin/form"); ?>">Import Data</a><br>
-<a href="<?php echo base_url("admin/export"); ?>">Export Data</a><br>
+<div class="box">
+  <div class="box-header">
+    <div class="col-md-6" style="padding: 0;">
+<a href="<?= base_url('admin/krisis_tambah/') ?>" class="form-control btn btn-primary"><i class="glyphicon glyphicon-plus-sign"></i>Tambah</a>
+</div>
+<div class="col-md-3">
+        <a href="<?php echo base_url("admin/form"); ?>" class="form-control btn btn-default"><i class="glyphicon glyphicon glyphicon-floppy-save"></i> Import Data Excel</a>
+    </div>
+<div class="col-md-3">
+        <a href="<?php echo base_url("admin/export"); ?>" class="form-control btn btn-default"><i class="glyphicon glyphicon glyphicon-floppy-open"></i> Export Data Excel</a><br><br>
+    </div>
+</div>
+
  <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
