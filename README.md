@@ -4,7 +4,7 @@ Required :
 1. CodeIgniter 3
 2. Composer
 3. NodeJS
-4. 
+4. XAMPP 7
 
 Fitur
 1. Tampilan Dinamis & User friendly
