@@ -2,6 +2,6 @@
 
 class KrisisModel extends CI_Model {
 	public function view(){
-		return $this->db->get('krisis')->result(); // Tampilkan semua data yang ada di tabel siswa
+		return $this->db->get('krisis')->result(); 
 	}
 }

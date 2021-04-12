@@ -5,7 +5,7 @@
 */
 class M_admin extends CI_model
 {
-	
+  
 public function krisis($value='')
 {
  return $this->db->query("SELECT * from krisis");

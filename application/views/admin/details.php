@@ -1,7 +1,7 @@
 <?= $this->session->flashdata('pesan');
 
 foreach ($data as $admin) : ?>
-	<div class="col-xs-6 col-md-1-5">
+    <div class="col-xs-6 col-md-1-5">
     <div>
         <b><font size="3">Detail Tower Penghantar</font></b>
     </div>
