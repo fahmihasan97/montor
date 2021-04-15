@@ -165,7 +165,7 @@ if (isset($_POST['preview'])) { // Jika user menekan tombol Preview pada form
     $numrow++; // Tambah 1 setiap kali looping
   }
 
-  echo "</tbody></table>";
+  echo '</tbody></table> ';
 
   // Cek apakah variabel kosong lebih dari 0
   // Jika lebih dari 0, berarti ada data yang masih kosong
@@ -177,9 +177,7 @@ if (isset($_POST['preview'])) { // Jika user menekan tombol Preview pada form
         $("#jumlah_kosong").html('<?php echo $kosong; ?>');
 
         $("#kosong").show(); // Munculkan alert validasi kosong
-        $('#example1').DataTable( {
-        "scrollX": true
-    } );
+        
 
       });
     </script>

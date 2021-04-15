@@ -7,8 +7,10 @@
   <title><?= $judul ?></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+     <link rel="stylesheet" href="<?php echo base_url('assets/leaflet/leaflet.css') ?>">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="<?= base_url('template/admin') ?>/bower_components/bootstrap/dist/css/bootstrap.min.css">
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="<?= base_url('template/admin') ?>/bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->

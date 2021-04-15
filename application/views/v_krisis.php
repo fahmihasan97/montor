@@ -2,13 +2,13 @@
 <div class="box">
   <div class="box-header">
     <div class="col-md-6" style="padding: 0;">
-      <a href="<?= base_url('admin/krisis_tambah/') ?>" class="form-control btn btn-primary"><i class="glyphicon glyphicon-plus-sign"></i>Tambah</a>
+      <a href="<?= base_url('krisis/krisis_tambah/') ?>" class="form-control btn btn-primary"><i class="glyphicon glyphicon-plus-sign"></i>Tambah</a>
     </div>
     <div class="col-md-3">
-      <a href="<?php echo base_url("admin/form"); ?>" class="form-control btn btn-default"><i class="glyphicon glyphicon glyphicon-floppy-save"></i> Import Data Excel</a>
+      <a href="<?php echo base_url("krisis/form"); ?>" class="form-control btn btn-default"><i class="glyphicon glyphicon glyphicon-floppy-save"></i> Import Data Excel</a>
     </div>
     <div class="col-md-3">
-      <a href="<?php echo base_url("admin/export"); ?>" class="form-control btn btn-default"><i class="glyphicon glyphicon glyphicon-floppy-open"></i> Export Data Excel</a><br><br>
+      <a href="<?php echo base_url("krisis/export"); ?>" class="form-control btn btn-default"><i class="glyphicon glyphicon glyphicon-floppy-open"></i> Export Data Excel</a><br><br>
     </div>
   </div>
 
@@ -16,6 +16,7 @@
     <thead>
       <tr>
         <th class="text-center">No</th>
+
         <th class="text-center">T/L</th>
         <th class="text-center">Tower</th>
         <th class="text-center">Jenis</th>
